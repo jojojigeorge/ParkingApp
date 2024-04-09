@@ -32,9 +32,9 @@ const HomePage = () => {
   ]);
   //  delete vehicle details
   const handleDelete = async (e, id) => {
-    try {
+    try { 
       e.preventDefault();
-      const { data } = await axios.delete(`api/v1/vehicle/delete/${id}`);
+      const { data } = await axios.delete(`/api/v1/vehicle/delete/${id}`);
       getAllvehicleDetails();
     } catch (error) {}
   };  
@@ -42,7 +42,7 @@ const HomePage = () => {
   // get all user order
   const getAllvehicleDetails = async () => {
     try {
-      const { data } = await axios.get("api/v1/vehicle/view-all");
+      const { data } = await axios.get("/api/v1/vehicle/view-all");
       setAllvehicle([...data?.allvehicle]);
     } catch (error) {
       console.log("error in fetch all order details", error);

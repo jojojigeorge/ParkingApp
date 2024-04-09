@@ -13,7 +13,7 @@ const PrivateRoute = () => {
   // };
 
   // const [authDetails, setAuthDetails] = useState({ user: "", token: "" });
-  axios.defaults.baseURL = "http://localhost:4001";
+  // axios.defaults.baseURL = "http://localhost:4001";
   // axios.defaults.headers.common["Authorization"] = authDetails.token;
   useEffect(() => {
     const data = localStorage.getItem("authDetails");

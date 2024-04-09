@@ -25,7 +25,7 @@ const HomePage = () => {
     return allvehicle.filter((item) => {
       return item.vehicle_no.toLowerCase().includes(query.toLowerCase());
     });
-  }, [query, allvehicle]);
+  }, [query, allvehicle]);  
 
   const [selectedstatus, setSelectedstatus] = useState([
     { name: "Not paid", day: 0 },
@@ -37,7 +37,7 @@ const HomePage = () => {
   const handleDelete = async (e, id) => {
     try {
       e.preventDefault();
-      const { data } = await axios.delete(`api/v1/vehicle/delete/${id}`);
+      const { data } = await axios.delete(`/api/v1/vehicle/delete/${id}`);
       getAllvehicleDetails();
     } catch (error) {}
   };
@@ -45,7 +45,7 @@ const HomePage = () => {
   // get all vehicle details in admin dashboard
   const getAllvehicleDetails = async () => {
     try {
-      const { data } = await axios.get("api/v1/user/admin-allvehicle");
+      const { data } = await axios.get("/api/v1/user/admin-allvehicle");
       setAllvehicle([...data?.allvehicle]);
     } catch (error) {
       console.log("error in fetch all order details", error);
@@ -70,13 +70,11 @@ const HomePage = () => {
         <div>
           <div>
             <div className="card container shadow-lg " style={{ maxWidth: "35rem" }}>
-              <div className="d-flex justify-content-end">
-                <Link to={"/private/dashboard/user/todaycollection"}>
-                  <span>Today's Collection</span>
-                </Link>
+              <div className="d-flex justify-content-center">
+                
               </div>
-              <div className="text-center pt-4">
-                <h4>All Vehicle Admin View</h4>
+              <div className="text-center pt-4">  
+                <h4>All Vehicle Admin View</h4> 
                 <div className="d-flex justify-content-center">
                   <div>
                     <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} style={{ padding: "7px", borderRadius: "50px" }} />
@@ -92,6 +90,9 @@ const HomePage = () => {
                     Add
                   </button>
                 </div>
+                <Link to={"/private/dashboard/user/todaycollection"}>
+                  <h6 className="btn btn-secondary mt-2 w-100">Today's Collection</h6>
+                </Link>
               </div>
               <div className="table-responsive">
                 <table className="table ">

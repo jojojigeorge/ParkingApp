@@ -37,7 +37,7 @@ const TodayCollection = () => {
   const handleDelete = async (e, id) => {
     try {
       e.preventDefault();
-      const { data } = await axios.delete(`api/v1/vehicle/delete/${id}`);
+      const { data } = await axios.delete(`/api/v1/vehicle/delete/${id}`);
       getAllvehicleDetails();
     } catch (error) {}
   };
@@ -45,7 +45,7 @@ const TodayCollection = () => {
   // get all vehicle details in admin dashboard 
   const getAllvehicleDetails = async () => {
     try {
-      const { data } = await axios.get("api/v1/user/admin-todaycollection");
+      const { data } = await axios.get("/api/v1/user/admin-todaycollection");
       setAllvehicle([...data?.allvehicle]);
       setCollection(data.todaycollection)  
     } catch (error) {

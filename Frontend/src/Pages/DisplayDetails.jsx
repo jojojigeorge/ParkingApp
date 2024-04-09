@@ -8,7 +8,7 @@ import { Select } from "antd";
 import moment from "moment";
 const { Option } = Select;
 
-const DisplayDetails = () => { 
+const DisplayDetails = () => {  
     const navigate = useNavigate();
   const [searchvalue, setSearchValue] = useSearch();
   const [userdata, setUserData] = useState({ owner: "", paidfor: "", phone: "", address: "", vehicle_no: searchvalue } ); 
@@ -60,9 +60,13 @@ const DisplayDetails = () => {
    // on click complete edit
    const handleEdit = async (e, orderId) => {
     try {
+      e.preventDefault()
         const { phone, owner, vehicle_no, address,  paidfor } = userdata
       const { data } = await axios.put(`/api/v1/vehicle/editall-vehicle/${userdata._id}`, { phone,owner,vehicle_no,address,paidfor});
-      getAllvehicleDetails();
+      // getAllvehicleDetails();
+      console.log('data',data)
+      toast.success('update vehicle details')
+      navigate( "/private")
     } catch (error) {
       console.log("error in order staus update", error);
     }

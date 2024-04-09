@@ -7,7 +7,7 @@ const DashBoard = () => {
   // get all vehicle details in admin dashboard 
   const getAllvehicleDetails = async () => {
     try {
-      const { data } = await axios.get("api/v1/user/user-todaycollection");
+      const { data } = await axios.get("/api/v1/user/user-todaycollection");
       // setAllvehicle([...data?.allvehicle]);
       setCollection(data.todaycollection)  
     } catch (error) { 
