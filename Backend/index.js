@@ -11,7 +11,13 @@ const app=express()
 // middleware
 app.use(express.json())
 app.use(morgan('dev'))
-app.use(cors())
+app.use(cors(
+  {
+    origin:["https://parking-app-001-client.vercel.app"],
+    method:["POST","GET","PUT","DELETE"],
+    credentials:true
+  }
+))
 
 // routes
 app.use('/api/v1/user',UserRouter)
