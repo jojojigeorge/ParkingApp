@@ -22,7 +22,7 @@ function Login() {
     const email = nameRef.current.value;
     const password = passwordRef.current.value;
     try {
-      const res = await axios.post(`/api/v1/user/login`, { email, password });
+      const res = await axios.post(`https://parking-app-backend-omega.vercel.app/api/v1/user/login`, { email, password });
       if (res.data.success) {
         setAuthDetails({
           ...authDetails,
