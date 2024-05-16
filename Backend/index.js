@@ -13,7 +13,7 @@ app.use(express.json())
 app.use(morgan('dev'))
 app.use(cors(
   {
-    origin:["https://parking-app-backend-omega.vercel.app"],
+    origin:["https://parking-app-001-client.vercel.app"],
     method:["POST","GET","PUT","DELETE"],
     credentials:true
   }
