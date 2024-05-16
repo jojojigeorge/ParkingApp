@@ -6,6 +6,9 @@
 //   plugins: [react()],
 // })
 
+// host:true,
+//     port:5174
+
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 
@@ -20,7 +23,7 @@ export default defineConfig({
         secure: false,
       },
     },
-    host:true,
-    port:5174
+
+    
   },
 })
