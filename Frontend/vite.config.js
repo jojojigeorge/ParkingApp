@@ -15,7 +15,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://parking-app-001-client.vercel.app:4001/",
+        target: "https://parking-app-backend-omega.vercel.app",
         changeOrigin: true,
         secure: false,
       },
